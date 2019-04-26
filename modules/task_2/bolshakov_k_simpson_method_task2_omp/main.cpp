@@ -35,8 +35,8 @@ double integrate_linear(double f(double, double),
     double h_x, double h_y, double x_n, double y_n) {
     h_x = (upper_bound_x - lower_bound_x) / x_n;
     h_y = (upper_bound_y - lower_bound_x) / y_n;
-    double* x = new double[x_n+1];
-    double* y = new double[y_n+1];
+    double* x = new double[x_n + 1];
+    double* y = new double[y_n + 1];
     double sum = 0;
     for (int i = 0; i <= x_n; i++) {
         x[i] = lower_bound_x + i * h_x;
