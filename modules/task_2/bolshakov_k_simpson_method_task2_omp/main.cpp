@@ -32,7 +32,7 @@ double func_simpson(double f(double, double),
 double integrate_linear(double f(double, double),
     double lower_bound_x, double lower_bound_y,
      double upper_bound_x, double upper_bound_y,
-    double h_x, double h_y, double x_n, double y_n) {
+    double h_x, double h_y, int x_n, int y_n) {
     h_x = (upper_bound_x - lower_bound_x) / x_n;
     h_y = (upper_bound_y - lower_bound_x) / y_n;
     double* x = new double[x_n + 1];
