@@ -52,7 +52,7 @@ double integrate_parallel_tbb(double f(double, double),
     for (int i = 0; i <= y_n; i++) {
         y[i] = lower_bound_y + i * h_y;
     }
-    double g_size = x_n/8;
+    size_t g_size = x_n / 8;
     double sum = tbb::parallel_reduce(
         tbb::blocked_range<size_t>(0, x_n, g_size), 0.0,
         [&](const tbb::blocked_range<size_t> &range, double partSum) -> double {
@@ -73,13 +73,13 @@ double integrate_parallel_tbb(double f(double, double),
 
 int main(int argc, char* argv[]) {
     tbb::tick_count linear_t1 = tbb::tick_count::now();
-    double linear_result = integrate_linear(func, 0, 0, 2, 2, 20000, 20000);
+    double linear_result = integrate_linear(func, 0, 0, 2, 2, 2000, 2000);
     tbb::tick_count linear_t2 = tbb::tick_count::now();
     double linear_time = (linear_t2 - linear_t1).seconds();
     std::cout << "linear result is " << std::fixed << linear_result << " and time is " << linear_time<< std::endl;
 
     tbb::tick_count tbb1 = tbb::tick_count::now();
-    double tbb_result = integrate_parallel_tbb(func, 0, 0, 2, 2, 20000, 20000);
+    double tbb_result = integrate_parallel_tbb(func, 0, 0, 2, 2, 2000, 2000);
     tbb::tick_count tbb2 = tbb::tick_count::now();
     double tbb_time = (tbb2 - tbb1).seconds();
     std::cout << "tbb result is " << std::fixed << tbb_result << " and time is " << tbb_time << std::endl;
