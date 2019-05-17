@@ -42,7 +42,7 @@ double integrate(double f(double, double),
 }
 
 int main(int argc, char* argv[]) {
-    double result = integrate_linear(func, 0, 0, 2, 2, 2000, 2000);
+    double result = integrate(func, 0, 0, 2, 2, 2000, 2000);
     std::cout << "result is " << std::fixed << result << std::endl;
 
     return 0;
