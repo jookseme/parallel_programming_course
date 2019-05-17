@@ -1,5 +1,4 @@
 // Copyright 2019 Bolshakov Konstantin
-#include <tbb/tbb.h>
 #include <stdio.h>
 #include <math.h>
 #include <iostream>
